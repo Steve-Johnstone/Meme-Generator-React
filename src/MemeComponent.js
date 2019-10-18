@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import MemeContainer from "./MemeContainer";
 
 class MemeGenerator extends Component {
   constructor() {
@@ -35,33 +36,11 @@ class MemeGenerator extends Component {
 
   render() {
     return (
-      <div>
-        <form className="meme-form">
-          <input
-            input="text"
-            name="topText"
-            value={this.state.topText}
-            onChange={this.handleChange}
-          ></input>
-
-          <input
-            input="text"
-            name="bottomText"
-            value={this.state.bottomText}
-            onChange={this.handleChange}
-          ></input>
-
-          <button type="button" onClick={this.randomMeme}>
-            Generate Meme
-          </button>
-        </form>
-
-        <div className="meme">
-          <img src={this.state.chosenMeme} alt="" />
-          <h2 className="top">{this.state.topText}</h2>
-          <h2 className="bottom">{this.state.bottomText}</h2>
-        </div>
-      </div>
+      <MemeContainer
+        data={this.state}
+        handleChange={this.handleChange}
+        randomMeme={this.randomMeme}
+      />
     );
   }
 }
